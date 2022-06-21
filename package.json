@@ -7,7 +7,7 @@
     "nodemon": "^2.0.16"
   },
   "scripts": {
-    "devStart": "nodemon server.js"
+    "star": "node server.js"
   },
   "keywords": [],
   "author": "",
