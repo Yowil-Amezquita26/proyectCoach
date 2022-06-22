@@ -30,7 +30,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"))
 
 app.use('/', require('./router/webRoute'))
-app.use('/mascotas', require('./router/Mascotas'))
+app.use('/mascotas', require('./router/mascotas'))
 app.use((req, res, next) => {
     res.status(404).render("404",
         {title: "404",
