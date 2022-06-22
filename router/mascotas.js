@@ -1,18 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
-router.get ('/', (req, res) => {
-    res.render('mascotas', {
-        arrayMascotas: [
-            {id: '1', nombre: 'Max', descripcion: 'Max descripcion'},
-            {id: '2', nombre: 'Ruby', descripcion: 'Ruby descripcion'},
-            {id: '3', nombre: 'Safiro', descripcion: 'Safiro descripcion'},
-        ]
-    })
+const Mascota = require('../models/mascota')
+
+router.get ('/', async (req, res) => {
+    
+    try{
+        const arrayMascotasDB = await Mascota.find()
+        console.log(arrayMascotasDB)
+        res.render('mascotas', {
+            arrayMascotas: arrayMascotasDB
+        })
+    } catch(error){
+        console.log(error)
+    }
+
 })
 
-router.get ('/services', (req, res) => {
-    res.render('services', {titleServices: 'dynamic services title'})
-})
 
 module.exports = router;
