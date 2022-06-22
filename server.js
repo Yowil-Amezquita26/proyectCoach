@@ -1,4 +1,4 @@
-const { say } = require('cowsay');
+// const { say } = require('cowsay');
 const express =require ('express');
 const app = express ();
 
@@ -20,7 +20,7 @@ const yodasay =require('yodasay');
 mongoose.connect(url, 
     // {useNewUrlParser: true, useUnitfieldTopology: true}
 )
-    .then(() => console.log(yodasay.say({text: "DataBase Connected"})))
+    .then(() => console.log( "DataBase Connected"))
     .catch(e => console.log(e))
 
 app.use(express.static(__dirname + "/public"))
