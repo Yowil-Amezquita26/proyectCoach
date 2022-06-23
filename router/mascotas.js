@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Mascota = require('../models/mascota')
+const Mascota = require('../models/pets')
 
 router.get ('/', async (req, res) => {
     console.log("hellow")
