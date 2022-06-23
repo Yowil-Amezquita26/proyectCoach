@@ -9,7 +9,7 @@ const port = process.env.PORT || 8000;
 // Conexion to data base
 const mongoose = require('mongoose');
 
-const url = `mongodb+srv://${process.env.USERMONGO}:${process.env.PASSWORD}@cluster0.r0a5b.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`
+const url = process.env.DATABASE_URL;
 
 const yodasay =require('yodasay');
 // console.log(yodasay.say({
@@ -17,7 +17,7 @@ const yodasay =require('yodasay');
 // }))
 
 
-mongoose.connect(url, 
+mongoose.connect(process.env.DATABASE_URL, 
     // {useNewUrlParser: true, useUnitfieldTopology: true}
 )
     .then(() => console.log( "DataBase Connected"))

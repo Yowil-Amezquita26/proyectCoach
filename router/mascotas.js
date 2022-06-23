@@ -4,7 +4,7 @@ const router = express.Router();
 const Mascota = require('../models/mascota')
 
 router.get ('/', async (req, res) => {
-    
+    console.log("hellow")
     try{
         const arrayMascotasDB = await Mascota.find()
         console.log(arrayMascotasDB)
