@@ -1,0 +1,43 @@
+<%- include("template/header", {title: "Create New Task"}) %> 
+    
+    <div class="container">
+        <h1>Task Details </h1>
+        <% if (error) { %>
+            <%= mensaje %> 
+            <a 
+                href="/mascotas"
+                class="btn btn-dark btn-block my-2"
+            >
+                Volver
+            </a>
+        <% } %>
+        <% if (!error) { %>
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"><%= mascota.id %></th>
+                        <td><%= mascota.nombre %> </td>
+                        <td><%= mascota.descripcion %></td>
+                        <td>
+                            <button
+                            class="btn btn-danger btn-sm"
+                            data-id="<%= mascota.id %>"
+                            >
+                            Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+       
+<%- include('template/footer')  %> 

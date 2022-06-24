@@ -1,0 +1,26 @@
+<%- include("template/header", {title: "Create New Task"}) %> 
+    
+    <div class="container">
+        <h1>Add New Task </h1>
+        <form action="/mascotas" method="POST">
+            <input 
+                type="text"
+                placeholder="Add name"
+                class="form-control my-2"
+                name="nombre"
+            >
+            <input 
+                type="text"
+                placeholder="Add description"
+                class="form-control my-2"
+                name="descripcion"
+            >
+            <button 
+                class="btn btn-success btn-block"
+                type="submit"
+                
+                >Submit</button>
+        </form>
+    </div>
+       
+<%- include('template/footer')  %> 

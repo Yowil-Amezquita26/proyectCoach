@@ -1,11 +1,14 @@
-<%- include("template/header", {title: "HomePage"}) %> 
+<%- include("template/header", {title: "Mascotas"}) %> 
 
     <div class="container">
-
+        <a class="btn btn-success btn-block my-4"
+        href="/mascotas/newTask"
+        >
+            Create new task
+        </a>
         <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Accion</th>
@@ -15,19 +18,24 @@
                 <% if (arrayMascotas.length > 0) { %>
                     <% arrayMascotas.forEach(mascotas => { %>
                         <tr>
-                            <th scope="row"><%=mascotas.id  %> </th>
                             <td><%=mascotas.nombre  %></td>
                             <td><%=mascotas.descripcion  %></td>
-                            <td>@mdo</td>
+                            <td>
+                                <a 
+                                    href="mascotas/<%= mascotas.id %> "
+                                    class="btn btn-warning btn-sm">
+                                    Edit
+                                </a>
+                            </td>
                         </tr>
                         
                     <% }) %>
                 <% } %>
             </tbody>
-          </table>
+        </table>
 
         
 
     </div>
 
-    <%- include('template/footer')  %> 
+<%- include('template/footer')  %> 
