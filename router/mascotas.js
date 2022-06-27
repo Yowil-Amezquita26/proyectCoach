@@ -60,17 +60,43 @@ router.get('/:id', async (req, res) =>{
 
 router.delete('/:id', async(req,res) => {
     const id = req.params.id;
-    console.log('id desde backend', id)
     try {
-
         const mascotaDB = await Mascota.findByIdAndDelete({ _id: id });
-        if (MascotaDB) {
+        if (mascotaDB) {
+            res.json({
+                estado: true,
+                mensaje: 'Deleted'
+            })
         } else {
-            
+            res.json({
+                estado: false,
+                mensaje: 'failed to delete'
+            })
         }
     } catch (error) {
         console.log(error)
         
+    }
+})
+
+router.put('/:id', async (req,res) =>{
+    const id = req.params.id;
+    const body = req.body;
+
+    try {
+
+        const mascotaDB = await Mascota.findByIdAndUpdate(id, body, { usefindAndModify: false});
+        console.log(mascotaDB)
+
+        res.json({
+            estado: true,
+            mensaje: 'Updated'
+        })
+    } catch (error) {
+        res.json({
+            estado: false,
+            mensaje: 'Couldn`t update'
+        })
     }
 })
 
